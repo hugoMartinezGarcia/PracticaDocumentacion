@@ -1,19 +1,18 @@
-﻿///<author>Hugo Martínez</author>
+﻿
 
 using Microsoft.EntityFrameworkCore;
 using Entidades;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Datos
 {
+    /// <summary>
+    /// Clase EmployeeADO
+    /// </summary>
     public class EmployeeADO : IDisposable
     {
         bool disposed;
 
+        
         public EmployeeADO()
         {
             disposed = false;

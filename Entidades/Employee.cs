@@ -1,24 +1,56 @@
-﻿///<author>Hugo Martínez</author>
-
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
 namespace Entidades
 {
+    /// <summary>
+    /// Clase para almacenar los datos del empleado
+    /// </summary>
     [Index("LastName", Name = "LastName")]
     [Index("PostalCode", Name = "PostalCode")]
     public partial class Employee : IComparable<Employee>, IDisposable
     {
+        /// <summary>
+        /// Id del empleado
+        /// </summary>
         [Key]
         [Column("EmployeeID")]
         public int EmployeeId { get; set; }
+        /// <summary>
+        /// Apellido del empleado.
+        /// </summary>
+        /// <remarks>
+        /// El apellido es de tipo string y no puede ser nulo o estar vacío.
+        /// Además, no puede tener más de 20 caracteres.
+        /// </remarks>
         [StringLength(20)]
         public string LastName { get; set; } = null!;
+        /// <summary>
+        /// Nombre del empleado
+        /// </summary>
+        /// <remarks>
+        /// El nombre es de tipo string y no puede ser nulo o estar vacío.
+        /// Además, no puede tener más de 10 caracteres.
+        /// </remarks>
         [StringLength(10)]
         public string FirstName { get; set; } = null!;
+        /// <summary>
+        /// Título del empleado.
+        /// </summary>
+        /// <remarks>
+        /// El título es de tipo string y no puede exceder de 30 caracteres.
+        /// El valor puede ser nulo.
+        /// </remarks>
         [StringLength(30)]
         public string? Title { get; set; }
+        /// <summary>
+        /// Título de cortesía del empleado
+        /// </summary>
+        /// <remarks>
+        /// Solo puede tomar los valores Ms., Dr., Mrs. o Mr. 
+        /// El valor puede ser nulo
+        /// </remarks>
         [StringLength(25)]
         public string? TitleOfCourtesy { get; set; }
         [Column(TypeName = "datetime")]

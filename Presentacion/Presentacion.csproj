@@ -21,6 +21,7 @@ IES San Vicente</Description>
     <Copyright>Hugo Martínez</Copyright>
     <PackageId>ventasdam.hugomartinez</PackageId>
     <Title>Ventas DAM</Title>
+    <GenerateDocumentationFile>False</GenerateDocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
